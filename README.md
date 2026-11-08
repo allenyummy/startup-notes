@@ -33,6 +33,7 @@
 | 4 | [創業一定要募資嗎？募資完整旅程](notes/zh/04-天使下凡要幹嘛-創業一定要募資嗎.md) | 天使下凡要幹嘛 | 34:35 | 融資輪次、募資計畫、紅線 |
 | 5 | [連續創業失敗的教訓！PopDaily 創辦人 Kim](notes/zh/05-查理的創業化合物-PopDaily創辦人Kim連續創業.md) | 查理的創業化合物 | 1:26:22 | 連續創業、驕傲、覆盤 |
 | 6 | [我一整年創業失敗的經驗](notes/zh/06-好葉-一整年創業失敗的經驗.md) | Better Leaf 好葉 | 21:36 | 年度覆盤、團隊、小而美 |
+| 7 | [🎙️ AI 預測叫瓦斯 ft. 好守氣創辦人 Eric](notes/zh/07-創業新聲帶-好守氣-AI預測叫瓦斯.md) | 創業新聲帶（Meet 創業小聚） | 56:23 | 傳統產業 × AI、IoT 轉平台、B2B2C |
 
 ## 🧭 跨影片共同主題（Cross-cutting Takeaways）
 
@@ -62,6 +63,14 @@
 - [ ] 沒錢沒經驗也能創業！？白手起家老闆十年經驗大公開（Willy）— https://www.youtube.com/watch?v=QbqkoXb_Yjg
 - [ ] Pick One Idea and Go Deep（YC）— https://www.youtube.com/watch?v=R56RJFZBasQ
 - [ ] 3 個募資的策略 — Velodash CEO Molly（熱情實驗室）— https://www.youtube.com/watch?v=5FimmylOFDM
+
+## 🎙️ 純音訊 Podcast 怎麼轉錄
+用 [whisper.cpp](https://github.com/ggerganov/whisper.cpp) 在本機轉逐字稿（1 小時節目約 4 分鐘）：
+
+```bash
+brew install whisper-cpp ffmpeg
+scripts/transcribe.sh <音檔 URL 或檔案> zh "節目與專有名詞提示"
+```
 
 ## ✍️ 新增筆記的格式
 複製 [`TEMPLATE.md`](TEMPLATE.md)，放到 `notes/en/` 或 `notes/zh/`，並更新上方索引。
