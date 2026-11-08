@@ -22,6 +22,7 @@
 | 6 | [How to Get and Test Startup Ideas](videos/en/06-michael-seibel-how-to-get-and-test-ideas.md) | Michael Seibel | 6:21 | 問題本、精挑早期用戶 |
 | 7 | [How To Build A Tech Startup With No Technical Skills](videos/en/07-yc-business-founders-need-technical-cofounders.md) | Michael Seibel, Dalton Caldwell | 15:14 | 非技術創辦人怎麼找技術合夥人 |
 | 8 | [2/20/200 Startup Idea Validation Framework](videos/en/08-rob-walling-2-20-200-validation-framework.md) | Rob Walling | 13:24 | Bootstrap 式點子驗證 |
+| 9 | [AI proof businesses worth building in 2027](videos/en/09-my-first-million-ai-proof-businesses-2027.md) | My First Million (Sam Parr, Shaan Puri) | 29:45 | AI 搶不走的生意：社群、信任市集、鯨魚客戶 |
 
 ### 中文
 | # | 影片 | 頻道 | 長度 | 主題 |
@@ -49,6 +50,8 @@
    中文兩集募資影片都強調：能自主營運可以不募資；拿錢後的唯一任務是讓估值變高；估值不是越高越好；要讓自己「有得選」。
 7. **小而美 / 一人公司也是一條路**
    Derek Sivers、好葉都提醒：不是每家公司都要做大，先想清楚自己要的生活。
+9. **AI 時代的護城河：社群、信任、關係**
+   My First Million：技術不再是護城河，付費同儕社群、經過審核的市集和鯨魚客戶，AI 都複製不了。
 8. **心態：反直覺、謙卑、持續覆盤**
    Paul Graham 的反直覺清單；PopDaily Kim 兩次因驕傲重摔；好葉的逐月覆盤。
 
