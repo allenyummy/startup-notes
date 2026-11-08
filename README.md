@@ -5,6 +5,9 @@
 - 每支影片一個檔案：`videos/en/`（英文）、`videos/zh/`（中文）
 - 摘要依影片字幕（多為自動字幕）整理，可能有少量誤差，細節請以原影片為準。
 - 最後更新：2026-11-08
+- 🌐 網頁版：https://allenyummy.github.io/startup-youtube-notes/
+
+> 網站由 `scripts/build.py` 讀取 `videos/**/*.md` 產生 `notes.json`，push 到 `main` 後 GitHub Actions 會自動部署。本機預覽：`python3 scripts/build.py && python3 -m http.server -d _site`。
 
 ## 📚 影片索引
 
