@@ -1,0 +1,12 @@
+title: Startup YouTube Notes｜創業影片筆記
+description: YouTube 創業主題影片（中英文）的快速整理筆記
+theme: jekyll-theme-cayman
+lang: zh-TW
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+relative_links:
+  enabled: true
+  collections: false
