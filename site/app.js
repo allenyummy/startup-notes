@@ -1,10 +1,10 @@
 (function () {
   "use strict";
 
-  var REPO = "https://github.com/allenyummy/startup-youtube-notes/blob/main/";
+  var REPO = "https://github.com/allenyummy/startup-notes/blob/main/";
   var app = document.getElementById("app");
   var data = null;
-  var state = { q: "", lang: "all", tag: "" };
+  var state = { q: "", lang: "all", type: "all", tag: "" };
   var homeScroll = 0;
 
   /* ---------- theme ---------- */
@@ -55,6 +55,7 @@
     var q = state.q.trim().toLowerCase();
     return data.notes.filter(function (n) {
       if (state.lang !== "all" && n.lang !== state.lang) return false;
+      if (state.type !== "all" && n.type !== state.type) return false;
       if (state.tag && n.tags.indexOf(state.tag) === -1) return false;
       if (!q) return true;
       var hay = [n.title, n.channel, n.summary, n.tags.join(" "), n.body].join(" ").toLowerCase();
@@ -65,11 +66,11 @@
   function cardHTML(n) {
     var img = thumb(n);
     return '<a class="card" href="' + noteHref(n) + '">' +
-      '<div class="thumb">' + (img ? '<img loading="lazy" src="' + img + '" alt="">' : "") +
+      '<div class="thumb">' + (img ? '<img loading="lazy" src="' + img + '" alt="">' : '<div class="ph">🎙️</div>') +
       '<span class="lang ' + n.lang + '">' + langLabel(n.lang) + "</span>" +
       (n.duration ? '<span class="dur">' + esc(n.duration) + "</span>" : "") + "</div>" +
       '<div class="card-body"><h3>' + esc(n.title) + "</h3>" +
-      '<p class="channel">' + esc(n.channel) + "</p>" +
+      '<p class="channel">' + (n.type === "podcast" ? '<span class="kind">🎙️ Podcast</span>' : '<span class="kind">▶ 影片</span>') + esc(n.channel) + "</p>" +
       '<p class="summary">' + esc(plain(n.summary)) + "</p>" +
       tagChips(n.tags.slice(0, 4)) + "</div></a>";
   }
@@ -85,12 +86,16 @@
     document.querySelectorAll("[data-tag]").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-tag") === state.tag));
     });
+    document.querySelectorAll("[data-type]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-type") === state.type));
+    });
   }
 
   function renderHome() {
-    document.title = "創業影片筆記｜Startup YouTube Notes";
+    document.title = "創業筆記｜Startup Notes";
     var notes = data.notes;
     var en = notes.filter(function (n) { return n.lang === "en"; }).length;
+    var pod = notes.filter(function (n) { return n.type === "podcast"; }).length;
     var hours = notes.reduce(function (s, n) { return s + parseMinutes(n.duration); }, 0) / 60;
 
     var counts = {};
@@ -99,11 +104,12 @@
 
     app.innerHTML =
       '<section class="hero">' +
-        '<p class="eyebrow">Startup YouTube Notes</p>' +
-        "<h1>把好的創業影片，<br><em>濃縮成可以帶走的筆記。</em></h1>" +
-        '<p class="lead">收集 YouTube 上中英文的創業主題影片，整理成重點筆記：點子、驗證、團隊、募資與創業心態。</p>' +
+        '<p class="eyebrow">Startup Notes</p>' +
+        "<h1>把好的創業影片與 Podcast，<br><em>濃縮成可以帶走的筆記。</em></h1>" +
+        '<p class="lead">收集中英文的創業主題影片與 Podcast，整理成重點筆記：點子、驗證、團隊、募資與創業心態。</p>' +
         '<div class="stats">' +
-          '<span class="stat"><b>' + notes.length + "</b> 支影片</span>" +
+          '<span class="stat"><b>' + notes.length + "</b> 篇筆記</span>" +
+          '<span class="stat"><b>' + (notes.length - pod) + "</b> 影片 · <b>" + pod + "</b> Podcast</span>" +
           '<span class="stat"><b>' + en + "</b> 英文 · <b>" + (notes.length - en) + "</b> 中文</span>" +
           '<span class="stat">約 <b>' + hours.toFixed(1) + "</b> 小時內容</span>" +
         "</div>" +
@@ -114,6 +120,10 @@
             '<button class="chip" data-lang="all">全部</button>' +
             '<button class="chip" data-lang="en">English<span class="n">' + en + "</span></button>" +
             '<button class="chip" data-lang="zh">中文<span class="n">' + (notes.length - en) + "</span></button>" +
+            '<span class="divider" aria-hidden="true"></span>' +
+            '<button class="chip" data-type="all">全部類型</button>' +
+            '<button class="chip" data-type="video">▶ 影片<span class="n">' + (notes.length - pod) + "</span></button>" +
+            '<button class="chip" data-type="podcast">🎙️ Podcast<span class="n">' + pod + "</span></button>" +
           "</div>" +
           '<div class="chips" role="group" aria-label="標籤"><span class="chips-label">主題</span>' +
             topTags.map(function (t) {
@@ -131,6 +141,9 @@
     q.addEventListener("input", function () { state.q = q.value; renderGrid(); });
     app.querySelectorAll("[data-lang]").forEach(function (b) {
       b.addEventListener("click", function () { state.lang = b.getAttribute("data-lang"); renderGrid(); });
+    });
+    app.querySelectorAll("[data-type]").forEach(function (b) {
+      b.addEventListener("click", function () { state.type = b.getAttribute("data-type"); renderGrid(); });
     });
     app.querySelectorAll("[data-tag]").forEach(function (b) {
       b.addEventListener("click", function () {
@@ -150,7 +163,7 @@
     if (idx === -1) { location.hash = "#/"; return; }
     var n = data.notes[idx];
     var prev = data.notes[idx - 1], next = data.notes[idx + 1];
-    document.title = n.title + "｜創業影片筆記";
+    document.title = n.title + "｜創業筆記";
 
     app.innerHTML =
       '<article class="detail">' +
@@ -159,8 +172,10 @@
         "<h1>" + esc(n.title) + "</h1>" +
         '<div class="meta">' +
           (n.channel ? "<span>" + esc(n.channel) + "</span>" : "") +
+          '<span class="sep">•</span><span>' + (n.type === "podcast" ? "🎙️ Podcast" : "▶ 影片") + "</span>" +
           (n.duration ? '<span class="sep">•</span><span>' + esc(n.duration) + "</span>" : "") +
-          (n.url ? '<span class="sep">•</span><a href="' + esc(n.url) + '" target="_blank" rel="noopener">在 YouTube 觀看 ↗</a>' : "") +
+          (n.url ? '<span class="sep">•</span><a href="' + esc(n.url) + '" target="_blank" rel="noopener">' + (n.videoId ? "在 YouTube 觀看" : "節目頁面") + " ↗</a>" : "") +
+          (n.listen ? '<span class="sep">•</span><a href="' + esc(n.listen) + '" target="_blank" rel="noopener">收聽 Podcast ↗</a>' : "") +
           '<span class="sep">•</span><a href="' + REPO + encodeURI(n.source) + '" target="_blank" rel="noopener">Markdown 原稿 ↗</a>' +
         "</div>" +
         tagChips(n.tags) +

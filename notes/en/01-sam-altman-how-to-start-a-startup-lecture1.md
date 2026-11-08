@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=CBYhVcO4WgI
 - 頻道：YC Root Access｜長度：43:53｜語言：英文
+- 類型：影片
 - 標籤：#總論 #點子 #產品 #團隊 #執行
 
 ## 一句話

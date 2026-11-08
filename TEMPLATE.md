@@ -1,7 +1,9 @@
 # <影片標題>
 
-- 連結：<https://www.youtube.com/watch?v=...>
-- 頻道：<頻道>｜長度：<mm:ss>｜語言：<中文/英文>
+- 連結：<YouTube 或節目頁連結>
+- 頻道：<頻道/節目>｜長度：<mm:ss>｜語言：<中文/英文>
+- 類型：<影片/Podcast>
+- 收聽：<Podcast 的 Apple/Spotify 連結，選填>
 - 標籤：#<主題>
 
 ## 一句話

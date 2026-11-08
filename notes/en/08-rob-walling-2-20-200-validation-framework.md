@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=d9uCqKEeJbY
 - 頻道：Rob Walling｜長度：13:24｜語言：英文
+- 類型：影片
 - 標籤：#驗證 #Bootstrap #SaaS #客戶訪談
 
 ## 一句話

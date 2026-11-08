@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=Th8JoIan4dg
 - 頻道：Y Combinator｜長度：32:22｜語言：英文
+- 類型：影片
 - 標籤：#點子 #驗證 #框架
 
 ## 一句話

@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=oqeJGz1Fdww
 - 頻道：張修修的不正常人生｜長度：15:46｜語言：中文
+- 類型：影片
 - 標籤：#一人公司 #微型創業 #書摘 #DerekSivers
 
 ## 一句話

@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=Sd_Vn1j8qrI
 - 頻道：My First Million（Sam Parr & Shaan Puri）｜長度：29:45｜語言：英文
+- 類型：Podcast
 - 標籤：#AI時代 #社群 #商業點子 #護城河 #鯨魚客戶 #商業模式
 
 ## 一句話

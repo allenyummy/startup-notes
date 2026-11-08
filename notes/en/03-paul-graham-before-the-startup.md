@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=f4_14pZlJBs
 - 頻道：Y Combinator｜長度：48:21｜語言：英文
+- 類型：影片
 - 標籤：#心態 #反直覺 #學生創業 #點子
 - 延伸：同名文章 https://paulgraham.com/before.html
 

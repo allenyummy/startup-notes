@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build the static site: parse videos/**/*.md into notes.json and copy site/ into _site/."""
+"""Build the static site: parse notes/**/*.md into notes.json and copy site/ into _site/."""
 import json, re, shutil, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "_site"
-META_RE = re.compile(r"^-\s*(連結|頻道|標籤)：(.*)$")
+META_RE = re.compile(r"^-\s*(連結|頻道|標籤|類型|收聽)：(.*)$")
 
 
 def parse_note(path: Path, lang: str) -> dict:
@@ -30,7 +30,9 @@ def parse_note(path: Path, lang: str) -> dict:
         "channel": "", "duration": "",
         "tags": re.findall(r"#([^\s#]+)", meta.get("標籤", "")),
         "summary": "",
-        "source": f"videos/{lang}/{path.name}",
+        "source": f"notes/{lang}/{path.name}",
+        "type": "podcast" if meta.get("類型", "").lower().startswith("podcast") else "video",
+        "listen": meta.get("收聽", ""),
     }
     for part in ("頻道：" + meta.get("頻道", "")).split("｜"):
         k, _, v = part.partition("：")
@@ -57,7 +59,7 @@ def readme_section(heading: str) -> str:
 def main() -> int:
     notes = []
     for lang in ("en", "zh"):
-        for p in sorted((ROOT / "videos" / lang).glob("*.md")):
+        for p in sorted((ROOT / "notes" / lang).glob("*.md")):
             notes.append(parse_note(p, lang))
     if OUT.exists():
         shutil.rmtree(OUT)

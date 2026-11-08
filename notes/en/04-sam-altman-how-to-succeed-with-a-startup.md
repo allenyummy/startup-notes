@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=0lJKucu6HJc
 - 頻道：Y Combinator｜長度：16:07｜語言：英文
+- 類型：影片
 - 標籤：#總論 #產品 #市場 #團隊
 
 ## 一句話

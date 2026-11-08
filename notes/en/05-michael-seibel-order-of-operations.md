@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=5fmDKGV0TnQ
 - 頻道：Y Combinator｜長度：15:37｜語言：英文
+- 類型：影片
 - 標籤：#起步 #點子 #共同創辦人 #MVP
 
 ## 一句話

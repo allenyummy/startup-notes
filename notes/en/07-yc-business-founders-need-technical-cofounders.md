@@ -2,6 +2,7 @@
 
 - 連結：https://www.youtube.com/watch?v=ZpKu2wvquWg
 - 頻道：Y Combinator｜長度：15:14｜語言：英文
+- 類型：影片
 - 標籤：#共同創辦人 #非技術創辦人 #招募
 
 ## 一句話
